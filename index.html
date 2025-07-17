@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Camera Measurement Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="camera-section">
+            <div class="video-container">
+                <video id="video" autoplay playsinline></video>
+                <canvas id="overlay" class="overlay-canvas"></canvas>
+            </div>
+        </div>
+        
+        <div class="control-panel">
+            <div class="header">
+                <h1>Scientific Measurement Tool</h1>
+                <p>Auto-Calibrated Camera Measurement System</p>
+            </div>
+            
+            <div class="calibration-section">
+                <h3>🔧 Auto-Calibration</h3>
+                <div class="auto-calibration-info">
+                    <div class="calibration-details">Screen Size: <span id="screenSize">Detecting...</span></div>
+                    <div class="calibration-details">Resolution: <span id="resolution">Detecting...</span></div>
+                    <div class="calibration-details">Pixel Density: <span id="pixelDensity">Calculating...</span></div>
+                    <div class="calibration-value">Scale Factor: <span id="scaleFactor">Ready</span></div>
+                </div>
+                
+                <div class="unit-selector">
+                    <button class="unit-btn active" data-unit="cm">Centimeters</button>
+                    <button class="unit-btn" data-unit="in">Inches</button>
+                </div>
+                
+                <div class="accuracy-indicator">
+                    ✓ Automatic calibration active - No manual setup required
+                </div>
+            </div>
+            
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="distance">📏 Distance Mode</button>
+                <button class="mode-btn" data-mode="perimeter">📐 Perimeter Mode</button>
+                <button class="mode-btn" data-mode="area">📊 Area Mode</button>
+            </div>
+            
+            <div class="distance-counter" id="distanceCounter">Distance Measurements: 0/4</div>
+            
+            <div class="measurements-panel">
+                <h3>📊 Measurements</h3>
+                <div id="measurementsList"></div>
+            </div>
+            
+            <div class="controls">
+                <button class="btn btn-primary" id="startCamera">Start Camera</button>
+                <button class="btn btn-secondary" id="clearAll">Clear All</button>
+                <button class="btn btn-danger" id="recalibrate">Recalibrate</button>
+            </div>
+            
+            <div class="status info" id="mainStatus">Auto-calibration ready. Click "Start Camera" to begin.</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
